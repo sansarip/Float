@@ -24,6 +24,8 @@ public class Plane : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		index += Time.deltaTime;
+		rigidBody2D.velocity= new Vector2(rigidBody2D.velocity.x, rigidBody2D.velocity.y - Time.deltaTime/10);
+		/*
 		if (bounceTimer > 0) {
 			if (bounceTimer == 2 * ampY) {
 				index = 0;
@@ -33,11 +35,15 @@ public class Plane : MonoBehaviour {
 		} else {
 			rigidBody2D.position = new Vector2 (transform.position.x, ampY * Mathf.Sin (2 * index));
 		}
+		*/
 	}
 
 	void OnMouseUp() {
+		rigidBody2D.AddForce (new Vector2 (0, 35));
+		/*
 		rigidBody2D.position = new Vector2(position.x, ampY * 2 * Mathf.Sin (2*index));
 		bounceTimer = 2 * ampY;
+		*/
 	}
 
 	private void addWobble() {
